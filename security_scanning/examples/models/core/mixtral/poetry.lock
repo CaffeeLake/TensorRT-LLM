@@ -32,6 +32,38 @@ test-trackers = ["comet-ml", "dvclive", "tensorboard", "wandb"]
 testing = ["bitsandbytes", "datasets", "deepspeed", "evaluate", "parameterized", "pytest", "pytest-subtests", "pytest-xdist", "scikit-learn", "scipy", "timm", "tqdm", "transformers"]
 
 [[package]]
+name = "annotated-doc"
+version = "0.0.4"
+description = "Document parameters, class attributes, return types, and variables inline, with Annotated."
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "annotated_doc-0.0.4-py3-none-any.whl", hash = "sha256:571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320"},
+    {file = "annotated_doc-0.0.4.tar.gz", hash = "sha256:fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"},
+]
+
+[[package]]
+name = "anyio"
+version = "4.14.0"
+description = "High-level concurrency and networking framework on top of asyncio or Trio"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "anyio-4.14.0-py3-none-any.whl", hash = "sha256:dd9b7a2a9799ed6552fde617b2c5df02b7fdd7d88392fc48101e51bae46164d9"},
+    {file = "anyio-4.14.0.tar.gz", hash = "sha256:b47c1f9ccf73e67021df785332508f99379c68fa7d0684e8e3492cb1d4b23f89"},
+]
+
+[package.dependencies]
+exceptiongroup = {version = ">=1.0.2", markers = "python_version < \"3.11\""}
+idna = ">=2.8"
+typing_extensions = {version = ">=4.5", markers = "python_version < \"3.13\""}
+
+[package.extras]
+trio = ["trio (>=0.32.0)"]
+
+[[package]]
 name = "certifi"
 version = "2026.6.17"
 description = "Python package for providing Mozilla's CA Bundle."
@@ -183,6 +215,21 @@ files = [
 ]
 
 [[package]]
+name = "click"
+version = "8.4.1"
+description = "Composable command line interface toolkit"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "click-8.4.1-py3-none-any.whl", hash = "sha256:482be17c6991b8c19c5429a1e995d9b0efdbb63172824c41f99965dc0ade8ec2"},
+    {file = "click-8.4.1.tar.gz", hash = "sha256:918b5633eddf6b41c32d4f454bf0de810065c74e3f7dbf8ee5452f8be88d3e96"},
+]
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
@@ -295,6 +342,25 @@ profiler = ["nvidia-cuda-profiler-api (==13.0.85.*) ; sys_platform == \"linux\" 
 sanitizer = ["nvidia-cuda-sanitizer-api (==13.0.85.*) ; sys_platform == \"linux\" or sys_platform == \"win32\""]
 
 [[package]]
+name = "exceptiongroup"
+version = "1.3.1"
+description = "Backport of PEP 654 (exception groups)"
+optional = false
+python-versions = ">=3.7"
+groups = ["main"]
+markers = "python_version == \"3.10\""
+files = [
+    {file = "exceptiongroup-1.3.1-py3-none-any.whl", hash = "sha256:a7a39a3bd276781e98394987d3a5701d0c4edffb633bb7a5144577f82c773598"},
+    {file = "exceptiongroup-1.3.1.tar.gz", hash = "sha256:8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219"},
+]
+
+[package.dependencies]
+typing-extensions = {version = ">=4.6.0", markers = "python_version < \"3.13\""}
+
+[package.extras]
+test = ["pytest (>=6)"]
+
+[[package]]
 name = "filelock"
 version = "3.29.4"
 description = "A platform independent file lock."
@@ -347,13 +413,25 @@ test-full = ["adlfs", "aiohttp (!=4.0.0a0,!=4.0.0a1)", "backports-zstd ; python_
 tqdm = ["tqdm"]
 
 [[package]]
+name = "h11"
+version = "0.16.0"
+description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"},
+    {file = "h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"},
+]
+
+[[package]]
 name = "hf-xet"
 version = "1.5.1"
 description = "Fast transfer of large files with the Hugging Face Hub."
 optional = false
 python-versions = ">=3.8"
 groups = ["main"]
-markers = "platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"arm64\" or platform_machine == \"aarch64\""
+markers = "platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"arm64\" or platform_machine == \"aarch64\""
 files = [
     {file = "hf_xet-1.5.1-cp313-cp313t-macosx_10_12_x86_64.whl", hash = "sha256:dbf48c0d02cf0b2e568944330c60d9120c272dabe013bd892d48e25bc6797577"},
     {file = "hf_xet-1.5.1-cp313-cp313t-macosx_11_0_arm64.whl", hash = "sha256:e78e4e5192ad2b674c2e1160b651cb9134db974f8ae1835bdfbfb0166b894a43"},
@@ -386,43 +464,88 @@ files = [
 tests = ["pytest"]
 
 [[package]]
-name = "huggingface-hub"
-version = "0.36.2"
-description = "Client library to download and publish models, datasets and other repos on the huggingface.co hub"
+name = "httpcore"
+version = "1.0.9"
+description = "A minimal low-level HTTP client."
 optional = false
-python-versions = ">=3.8.0"
+python-versions = ">=3.8"
 groups = ["main"]
 files = [
-    {file = "huggingface_hub-0.36.2-py3-none-any.whl", hash = "sha256:48f0c8eac16145dfce371e9d2d7772854a4f591bcb56c9cf548accf531d54270"},
-    {file = "huggingface_hub-0.36.2.tar.gz", hash = "sha256:1934304d2fb224f8afa3b87007d58501acfda9215b334eed53072dd5e815ff7a"},
+    {file = "httpcore-1.0.9-py3-none-any.whl", hash = "sha256:2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"},
+    {file = "httpcore-1.0.9.tar.gz", hash = "sha256:6e34463af53fd2ab5d807f399a9b45ea31c3dfa2276f15a2c3f00afff6e176e8"},
 ]
 
 [package.dependencies]
-filelock = "*"
-fsspec = ">=2023.5.0"
-hf-xet = {version = ">=1.1.3,<2.0.0", markers = "platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"arm64\" or platform_machine == \"aarch64\""}
-packaging = ">=20.9"
-pyyaml = ">=5.1"
-requests = "*"
-tqdm = ">=4.42.1"
-typing-extensions = ">=3.7.4.3"
+certifi = "*"
+h11 = ">=0.16"
 
 [package.extras]
-all = ["InquirerPy (==0.3.4)", "Jinja2", "Pillow", "aiohttp", "authlib (>=1.3.2)", "fastapi", "fastapi", "gradio (>=4.0.0)", "httpx", "itsdangerous", "jedi", "libcst (>=1.4.0)", "mypy (==1.15.0) ; python_version >= \"3.9\"", "mypy (>=1.14.1,<1.15.0) ; python_version == \"3.8\"", "numpy", "pytest (>=8.1.1,<8.2.2)", "pytest-asyncio", "pytest-cov", "pytest-env", "pytest-mock", "pytest-rerunfailures (<16.0)", "pytest-vcr", "pytest-xdist", "ruff (>=0.9.0)", "soundfile", "ty", "types-PyYAML", "types-requests", "types-simplejson", "types-toml", "types-tqdm", "types-urllib3", "typing-extensions (>=4.8.0)", "urllib3 (<2.0)"]
-cli = ["InquirerPy (==0.3.4)"]
-dev = ["InquirerPy (==0.3.4)", "Jinja2", "Pillow", "aiohttp", "authlib (>=1.3.2)", "fastapi", "fastapi", "gradio (>=4.0.0)", "httpx", "itsdangerous", "jedi", "libcst (>=1.4.0)", "mypy (==1.15.0) ; python_version >= \"3.9\"", "mypy (>=1.14.1,<1.15.0) ; python_version == \"3.8\"", "numpy", "pytest (>=8.1.1,<8.2.2)", "pytest-asyncio", "pytest-cov", "pytest-env", "pytest-mock", "pytest-rerunfailures (<16.0)", "pytest-vcr", "pytest-xdist", "ruff (>=0.9.0)", "soundfile", "ty", "types-PyYAML", "types-requests", "types-simplejson", "types-toml", "types-tqdm", "types-urllib3", "typing-extensions (>=4.8.0)", "urllib3 (<2.0)"]
+asyncio = ["anyio (>=4.0,<5.0)"]
+http2 = ["h2 (>=3,<5)"]
+socks = ["socksio (==1.*)"]
+trio = ["trio (>=0.22.0,<1.0)"]
+
+[[package]]
+name = "httpx"
+version = "0.28.1"
+description = "The next generation HTTP client."
+optional = false
+python-versions = ">=3.8"
+groups = ["main"]
+files = [
+    {file = "httpx-0.28.1-py3-none-any.whl", hash = "sha256:d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"},
+    {file = "httpx-0.28.1.tar.gz", hash = "sha256:75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"},
+]
+
+[package.dependencies]
+anyio = "*"
+certifi = "*"
+httpcore = "==1.*"
+idna = "*"
+
+[package.extras]
+brotli = ["brotli ; platform_python_implementation == \"CPython\"", "brotlicffi ; platform_python_implementation != \"CPython\""]
+cli = ["click (==8.*)", "pygments (==2.*)", "rich (>=10,<14)"]
+http2 = ["h2 (>=3,<5)"]
+socks = ["socksio (==1.*)"]
+zstd = ["zstandard (>=0.18.0)"]
+
+[[package]]
+name = "huggingface-hub"
+version = "1.20.1"
+description = "Client library to download and publish models, datasets and other repos on the huggingface.co hub"
+optional = false
+python-versions = ">=3.10.0"
+groups = ["main"]
+files = [
+    {file = "huggingface_hub-1.20.1-py3-none-any.whl", hash = "sha256:274448a45c1ba6f112fe2fb168ead05574c654faa156904157a84085cfae14bd"},
+    {file = "huggingface_hub-1.20.1.tar.gz", hash = "sha256:9f6d63bfbeab2d2a8357200a9bc4f18cd2c8bfac9579f792f5922e77bf6471d0"},
+]
+
+[package.dependencies]
+click = ">=8.4.0"
+filelock = ">=3.10.0"
+fsspec = ">=2023.5.0"
+hf-xet = {version = ">=1.5.1,<2.0.0", markers = "platform_machine == \"x86_64\" or platform_machine == \"amd64\" or platform_machine == \"AMD64\" or platform_machine == \"arm64\" or platform_machine == \"aarch64\""}
+httpx = ">=0.23.0,<1"
+packaging = ">=20.9"
+pyyaml = ">=5.1"
+tqdm = ">=4.42.1"
+typer = ">=0.20.0,<0.26.0"
+typing-extensions = ">=4.1.0"
+
+[package.extras]
+all = ["Jinja2", "Pillow", "authlib (>=1.3.2)", "duckdb", "fastapi", "fastapi", "httpx", "itsdangerous", "jedi", "libcst (>=1.4.0)", "mypy (==1.15.0)", "numpy", "pytest (>=8.4.2)", "pytest-asyncio", "pytest-cov", "pytest-env", "pytest-mock", "pytest-rerunfailures (<16.0)", "pytest-vcr", "pytest-xdist", "ruff (>=0.9.0)", "soundfile", "ty", "types-PyYAML", "types-simplejson", "types-toml", "types-tqdm", "types-urllib3", "typing-extensions (>=4.8.0)", "urllib3 (<2.0)"]
+dev = ["Jinja2", "Pillow", "authlib (>=1.3.2)", "duckdb", "fastapi", "fastapi", "httpx", "itsdangerous", "jedi", "libcst (>=1.4.0)", "mypy (==1.15.0)", "numpy", "pytest (>=8.4.2)", "pytest-asyncio", "pytest-cov", "pytest-env", "pytest-mock", "pytest-rerunfailures (<16.0)", "pytest-vcr", "pytest-xdist", "ruff (>=0.9.0)", "soundfile", "ty", "types-PyYAML", "types-simplejson", "types-toml", "types-tqdm", "types-urllib3", "typing-extensions (>=4.8.0)", "urllib3 (<2.0)"]
 fastai = ["fastai (>=2.4)", "fastcore (>=1.3.27)", "toml"]
-hf-transfer = ["hf_transfer (>=0.1.4)"]
-hf-xet = ["hf-xet (>=1.1.2,<2.0.0)"]
-inference = ["aiohttp"]
-mcp = ["aiohttp", "mcp (>=1.8.0)", "typer"]
+gradio = ["gradio (>=5.0.0)", "requests"]
+hf-xet = ["hf-xet (>=1.5.1,<2.0.0)"]
+mcp = ["mcp (>=1.8.0)"]
 oauth = ["authlib (>=1.3.2)", "fastapi", "httpx", "itsdangerous"]
-quality = ["libcst (>=1.4.0)", "mypy (==1.15.0) ; python_version >= \"3.9\"", "mypy (>=1.14.1,<1.15.0) ; python_version == \"3.8\"", "ruff (>=0.9.0)", "ty"]
-tensorflow = ["graphviz", "pydot", "tensorflow"]
-tensorflow-testing = ["keras (<3.0)", "tensorflow"]
-testing = ["InquirerPy (==0.3.4)", "Jinja2", "Pillow", "aiohttp", "authlib (>=1.3.2)", "fastapi", "fastapi", "gradio (>=4.0.0)", "httpx", "itsdangerous", "jedi", "numpy", "pytest (>=8.1.1,<8.2.2)", "pytest-asyncio", "pytest-cov", "pytest-env", "pytest-mock", "pytest-rerunfailures (<16.0)", "pytest-vcr", "pytest-xdist", "soundfile", "urllib3 (<2.0)"]
+quality = ["libcst (>=1.4.0)", "mypy (==1.15.0)", "ruff (>=0.9.0)", "ty"]
+testing = ["Jinja2", "Pillow", "authlib (>=1.3.2)", "duckdb", "fastapi", "fastapi", "httpx", "itsdangerous", "jedi", "numpy", "pytest (>=8.4.2)", "pytest-asyncio", "pytest-cov", "pytest-env", "pytest-mock", "pytest-rerunfailures (<16.0)", "pytest-vcr", "pytest-xdist", "soundfile", "urllib3 (<2.0)"]
 torch = ["safetensors[torch]", "torch"]
-typing = ["types-PyYAML", "types-requests", "types-simplejson", "types-toml", "types-tqdm", "types-urllib3", "typing-extensions (>=4.8.0)"]
+typing = ["types-PyYAML", "types-simplejson", "types-toml", "types-tqdm", "types-urllib3", "typing-extensions (>=4.8.0)"]
 
 [[package]]
 name = "idna"
@@ -456,6 +579,30 @@ MarkupSafe = ">=2.0"
 
 [package.extras]
 i18n = ["Babel (>=2.7)"]
+
+[[package]]
+name = "markdown-it-py"
+version = "4.2.0"
+description = "Python port of markdown-it. Markdown parsing, done right!"
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "markdown_it_py-4.2.0-py3-none-any.whl", hash = "sha256:9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"},
+    {file = "markdown_it_py-4.2.0.tar.gz", hash = "sha256:04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"},
+]
+
+[package.dependencies]
+mdurl = ">=0.1,<1.0"
+
+[package.extras]
+benchmarking = ["psutil", "pytest", "pytest-benchmark"]
+compare = ["commonmark (>=0.9,<1.0)", "markdown (>=3.4,<4.0)", "markdown-it-pyrs", "mistletoe (>=1.0,<2.0)", "mistune (>=3.0,<4.0)", "panflute (>=2.3,<3.0)"]
+linkify = ["linkify-it-py (>=1,<3)"]
+plugins = ["mdit-py-plugins (>=0.5.0)"]
+profiling = ["gprof2dot"]
+rtd = ["ipykernel", "jupyter_sphinx", "mdit-py-plugins (>=0.5.0)", "myst-parser", "pyyaml", "sphinx", "sphinx-book-theme (>=1.0,<2.0)", "sphinx-copybutton", "sphinx-design"]
+testing = ["coverage", "pytest", "pytest-cov", "pytest-regressions", "pytest-timeout", "requests"]
 
 [[package]]
 name = "markupsafe"
@@ -554,6 +701,18 @@ files = [
     {file = "markupsafe-3.0.3-cp39-cp39-win_amd64.whl", hash = "sha256:7c3fb7d25180895632e5d3148dbdc29ea38ccb7fd210aa27acbd1201a1902c6e"},
     {file = "markupsafe-3.0.3-cp39-cp39-win_arm64.whl", hash = "sha256:38664109c14ffc9e7437e86b4dceb442b0096dfe3541d7864d9cbe1da4cf36c8"},
     {file = "markupsafe-3.0.3.tar.gz", hash = "sha256:722695808f4b6457b320fdc131280796bdceb04ab50fe1795cd540799ebe1698"},
+]
+
+[[package]]
+name = "mdurl"
+version = "0.1.2"
+description = "Markdown URL utilities"
+optional = false
+python-versions = ">=3.7"
+groups = ["main"]
+files = [
+    {file = "mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"},
+    {file = "mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"},
 ]
 
 [[package]]
@@ -931,6 +1090,21 @@ dev = ["abi3audit", "black", "check-manifest", "colorama ; os_name == \"nt\"", "
 test = ["psleak", "pytest", "pytest-instafail", "pytest-xdist", "pywin32 ; os_name == \"nt\" and implementation_name != \"pypy\"", "setuptools", "wheel ; os_name == \"nt\" and implementation_name != \"pypy\"", "wmi ; os_name == \"nt\" and implementation_name != \"pypy\""]
 
 [[package]]
+name = "pygments"
+version = "2.20.0"
+description = "Pygments is a syntax highlighting package written in Python."
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "pygments-2.20.0-py3-none-any.whl", hash = "sha256:81a9e26dd42fd28a23a2d169d86d7ac03b46e2f8b59ed4698fb4785f946d0176"},
+    {file = "pygments-2.20.0.tar.gz", hash = "sha256:6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"},
+]
+
+[package.extras]
+windows-terminal = ["colorama (>=0.4.6)"]
+
+[[package]]
 name = "pyyaml"
 version = "6.0.3"
 description = "YAML parser and emitter for Python"
@@ -1160,6 +1334,25 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<8)"]
 
 [[package]]
+name = "rich"
+version = "15.0.0"
+description = "Render rich text, tables, progress bars, syntax highlighting, markdown and more to the terminal"
+optional = false
+python-versions = ">=3.9.0"
+groups = ["main"]
+files = [
+    {file = "rich-15.0.0-py3-none-any.whl", hash = "sha256:33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"},
+    {file = "rich-15.0.0.tar.gz", hash = "sha256:edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"},
+]
+
+[package.dependencies]
+markdown-it-py = ">=2.2.0"
+pygments = ">=2.13.0,<3.0.0"
+
+[package.extras]
+jupyter = ["ipywidgets (>=7.5.1,<9)"]
+
+[[package]]
 name = "safetensors"
 version = "0.8.0"
 description = ""
@@ -1221,6 +1414,18 @@ doc = ["furo", "jaraco.packaging (>=9.3)", "jaraco.tidelift (>=1.4)", "pygments-
 enabler = ["pytest-enabler (>=2.2)"]
 test = ["build[virtualenv] (>=1.0.3)", "filelock (>=3.4.0)", "ini2toml[lite] (>=0.14)", "jaraco.develop (>=7.21) ; python_version >= \"3.9\" and sys_platform != \"cygwin\"", "jaraco.envs (>=2.2)", "jaraco.path (>=3.7.2)", "jaraco.test (>=5.5)", "packaging (>=24.2)", "pip (>=19.1)", "pyproject-hooks (!=1.1)", "pytest (>=6,!=8.1.*)", "pytest-home (>=0.5)", "pytest-perf ; sys_platform != \"cygwin\"", "pytest-subprocess", "pytest-timeout", "pytest-xdist (>=3)", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel (>=0.44.0)"]
 type = ["importlib_metadata (>=7.0.2) ; python_version < \"3.10\"", "jaraco.develop (>=7.21) ; sys_platform != \"cygwin\"", "mypy (==1.18.*)", "pytest-mypy"]
+
+[[package]]
+name = "shellingham"
+version = "1.5.4"
+description = "Tool to Detect Surrounding Shell"
+optional = false
+python-versions = ">=3.7"
+groups = ["main"]
+files = [
+    {file = "shellingham-1.5.4-py2.py3-none-any.whl", hash = "sha256:7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"},
+    {file = "shellingham-1.5.4.tar.gz", hash = "sha256:8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de"},
+]
 
 [[package]]
 name = "sympy"
@@ -1361,19 +1566,19 @@ telegram = ["envwrap", "requests"]
 
 [[package]]
 name = "transformers"
-version = "4.56.0"
-description = "State-of-the-art Machine Learning for JAX, PyTorch and TensorFlow"
+version = "5.0.0rc3"
+description = "Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training."
 optional = false
-python-versions = ">=3.9.0"
+python-versions = ">=3.10.0"
 groups = ["main"]
 files = [
-    {file = "transformers-4.56.0-py3-none-any.whl", hash = "sha256:bacf539c38dd850690856881c4974321af93a22f2ee96bcc994741a2121d8e71"},
-    {file = "transformers-4.56.0.tar.gz", hash = "sha256:6ca9c3f38aa4da93ebf877db7156368c1c188c7465f09dbe70951e7622e987fa"},
+    {file = "transformers-5.0.0rc3-py3-none-any.whl", hash = "sha256:383fad27f4f73092d330e45fae384681e5c8521e1dc1cf6cb1a297780e68bf2d"},
+    {file = "transformers-5.0.0rc3.tar.gz", hash = "sha256:a0315b92b7e087617ade42ec9e6e92ee7620541cc5d6a3331886c52cbe306f5c"},
 ]
 
 [package.dependencies]
 filelock = "*"
-huggingface-hub = ">=0.34.0,<1.0"
+huggingface-hub = ">=1.3.0,<2.0"
 numpy = ">=1.17"
 packaging = ">=20.0"
 pyyaml = ">=5.1"
@@ -1382,55 +1587,47 @@ requests = "*"
 safetensors = ">=0.4.3"
 tokenizers = ">=0.22.0,<=0.23.0"
 tqdm = ">=4.27"
+typer-slim = "*"
 
 [package.extras]
-accelerate = ["accelerate (>=0.26.0)"]
-all = ["Pillow (>=10.0.1,<=15.0)", "accelerate (>=0.26.0)", "av", "codecarbon (>=2.8.1)", "flax (>=0.4.1,<=0.7.0)", "jax (>=0.4.1,<=0.4.13)", "jaxlib (>=0.4.1,<=0.4.13)", "jinja2 (>=3.1.0)", "kenlm", "keras-nlp (>=0.3.1,<0.14.0)", "kernels (>=0.6.1,<=0.9)", "librosa", "mistral-common[opencv] (>=1.6.3)", "num2words", "onnxconverter-common", "optax (>=0.0.8,<=0.1.4)", "optuna", "phonemizer", "protobuf", "pyctcdecode (>=0.4.0)", "ray[tune] (>=2.7.0)", "scipy (<1.13.0)", "sentencepiece (>=0.1.91,!=0.1.92)", "sigopt", "tensorflow (>2.9,<2.16)", "tensorflow-text (<2.16)", "tf2onnx", "timm (!=1.0.18,<=1.0.19)", "tokenizers (>=0.22.0,<=0.23.0)", "torch (>=2.2)", "torchaudio", "torchvision"]
+accelerate = ["accelerate (>=1.1.0)"]
+all = ["Pillow (>=10.0.1,<=15.0)", "Pillow (>=10.0.1,<=15.0)", "accelerate (>=1.1.0)", "accelerate (>=1.1.0)", "av", "codecarbon (>=2.8.1)", "jinja2 (>=3.1.0)", "jmespath (>=1.0.1)", "kenlm", "kernels (>=0.10.2,<0.11)", "librosa", "mistral-common[image] (>=1.8.8)", "num2words", "optuna", "phonemizer", "protobuf", "pyctcdecode (>=0.4.0)", "ray[tune] (>=2.7.0)", "sentencepiece (>=0.1.91,!=0.1.92)", "timm (>=1.0.23)", "tokenizers (>=0.22.0,<=0.23.0)", "torch (>=2.2)", "torchaudio", "torchvision"]
 audio = ["kenlm", "librosa", "phonemizer", "pyctcdecode (>=0.4.0)"]
 benchmark = ["optimum-benchmark (>=0.3.0)"]
-chat-template = ["jinja2 (>=3.1.0)"]
+chat-template = ["jinja2 (>=3.1.0)", "jmespath (>=1.0.1)"]
 codecarbon = ["codecarbon (>=2.8.1)"]
-deepspeed = ["accelerate (>=0.26.0)", "deepspeed (>=0.9.3)"]
-deepspeed-testing = ["GitPython (<3.1.19)", "accelerate (>=0.26.0)", "beautifulsoup4", "cookiecutter (==1.7.3)", "datasets (>=2.15.0)", "deepspeed (>=0.9.3)", "dill (<0.3.5)", "evaluate (>=0.2.0)", "faiss-cpu", "libcst", "mistral-common[opencv] (>=1.6.3)", "nltk (<=3.8.1)", "optuna", "parameterized (>=0.9)", "protobuf", "psutil", "pydantic (>=2)", "pytest (>=7.2.0)", "pytest-asyncio", "pytest-order", "pytest-rerunfailures", "pytest-rich", "pytest-timeout", "pytest-xdist", "rjieba", "rouge-score (!=0.0.7,!=0.0.8,!=0.1,!=0.1.1)", "ruff (==0.11.2)", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "sentencepiece (>=0.1.91,!=0.1.92)", "tensorboard", "timeout-decorator"]
-dev = ["GitPython (<3.1.19)", "Pillow (>=10.0.1,<=15.0)", "accelerate (>=0.26.0)", "av", "beautifulsoup4", "codecarbon (>=2.8.1)", "cookiecutter (==1.7.3)", "datasets (>=2.15.0)", "dill (<0.3.5)", "evaluate (>=0.2.0)", "faiss-cpu", "flax (>=0.4.1,<=0.7.0)", "fugashi (>=1.0)", "ipadic (>=1.0.0,<2.0)", "jax (>=0.4.1,<=0.4.13)", "jaxlib (>=0.4.1,<=0.4.13)", "jinja2 (>=3.1.0)", "kenlm", "keras-nlp (>=0.3.1,<0.14.0)", "kernels (>=0.6.1,<=0.9)", "libcst", "librosa", "mistral-common[opencv] (>=1.6.3)", "nltk (<=3.8.1)", "num2words", "onnxconverter-common", "optax (>=0.0.8,<=0.1.4)", "optuna", "pandas (<2.3.0)", "parameterized (>=0.9)", "phonemizer", "protobuf", "psutil", "pyctcdecode (>=0.4.0)", "pydantic (>=2)", "pytest (>=7.2.0)", "pytest-asyncio", "pytest-order", "pytest-rerunfailures", "pytest-rich", "pytest-timeout", "pytest-xdist", "ray[tune] (>=2.7.0)", "rhoknp (>=1.1.0,<1.3.1)", "rich", "rjieba", "rouge-score (!=0.0.7,!=0.0.8,!=0.1,!=0.1.1)", "ruff (==0.11.2)", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "scikit-learn", "scipy (<1.13.0)", "sentencepiece (>=0.1.91,!=0.1.92)", "sigopt", "sudachidict-core (>=20220729)", "sudachipy (>=0.6.6)", "tensorboard", "tensorflow (>2.9,<2.16)", "tensorflow-text (<2.16)", "tf2onnx", "timeout-decorator", "timm (!=1.0.18,<=1.0.19)", "tokenizers (>=0.22.0,<=0.23.0)", "torch (>=2.2)", "torchaudio", "torchvision", "unidic (>=1.0.2)", "unidic-lite (>=1.0.7)", "urllib3 (<2.0.0)"]
-dev-tensorflow = ["GitPython (<3.1.19)", "Pillow (>=10.0.1,<=15.0)", "beautifulsoup4", "cookiecutter (==1.7.3)", "datasets (>=2.15.0)", "dill (<0.3.5)", "evaluate (>=0.2.0)", "faiss-cpu", "kenlm", "keras-nlp (>=0.3.1,<0.14.0)", "libcst", "librosa", "mistral-common[opencv] (>=1.6.3)", "nltk (<=3.8.1)", "onnxconverter-common", "onnxruntime (>=1.4.0)", "onnxruntime-tools (>=1.4.2)", "pandas (<2.3.0)", "parameterized (>=0.9)", "phonemizer", "protobuf", "psutil", "pyctcdecode (>=0.4.0)", "pydantic (>=2)", "pytest (>=7.2.0)", "pytest-asyncio", "pytest-order", "pytest-rerunfailures", "pytest-rich", "pytest-timeout", "pytest-xdist", "rich", "rjieba", "rouge-score (!=0.0.7,!=0.0.8,!=0.1,!=0.1.1)", "ruff (==0.11.2)", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "scikit-learn", "sentencepiece (>=0.1.91,!=0.1.92)", "tensorboard", "tensorflow (>2.9,<2.16)", "tensorflow-text (<2.16)", "tf2onnx", "timeout-decorator", "tokenizers (>=0.22.0,<=0.23.0)", "urllib3 (<2.0.0)"]
-dev-torch = ["GitPython (<3.1.19)", "Pillow (>=10.0.1,<=15.0)", "accelerate (>=0.26.0)", "beautifulsoup4", "codecarbon (>=2.8.1)", "cookiecutter (==1.7.3)", "datasets (>=2.15.0)", "dill (<0.3.5)", "evaluate (>=0.2.0)", "faiss-cpu", "fugashi (>=1.0)", "ipadic (>=1.0.0,<2.0)", "kenlm", "kernels (>=0.6.1,<=0.9)", "libcst", "librosa", "mistral-common[opencv] (>=1.6.3)", "nltk (<=3.8.1)", "num2words", "onnxruntime (>=1.4.0)", "onnxruntime-tools (>=1.4.2)", "optuna", "pandas (<2.3.0)", "parameterized (>=0.9)", "phonemizer", "protobuf", "psutil", "pyctcdecode (>=0.4.0)", "pydantic (>=2)", "pytest (>=7.2.0)", "pytest-asyncio", "pytest-order", "pytest-rerunfailures", "pytest-rich", "pytest-timeout", "pytest-xdist", "ray[tune] (>=2.7.0)", "rhoknp (>=1.1.0,<1.3.1)", "rich", "rjieba", "rouge-score (!=0.0.7,!=0.0.8,!=0.1,!=0.1.1)", "ruff (==0.11.2)", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "scikit-learn", "sentencepiece (>=0.1.91,!=0.1.92)", "sigopt", "sudachidict-core (>=20220729)", "sudachipy (>=0.6.6)", "tensorboard", "timeout-decorator", "timm (!=1.0.18,<=1.0.19)", "tokenizers (>=0.22.0,<=0.23.0)", "torch (>=2.2)", "torchaudio", "torchvision", "unidic (>=1.0.2)", "unidic-lite (>=1.0.7)", "urllib3 (<2.0.0)"]
-flax = ["flax (>=0.4.1,<=0.7.0)", "jax (>=0.4.1,<=0.4.13)", "jaxlib (>=0.4.1,<=0.4.13)", "optax (>=0.0.8,<=0.1.4)", "scipy (<1.13.0)"]
-flax-speech = ["kenlm", "librosa", "phonemizer", "pyctcdecode (>=0.4.0)"]
+deepspeed = ["accelerate (>=1.1.0)", "deepspeed (>=0.9.3)"]
+deepspeed-testing = ["GitPython (<3.1.19)", "accelerate (>=1.1.0)", "accelerate (>=1.1.0)", "beautifulsoup4", "cookiecutter (==1.7.3)", "datasets (>=2.15.0)", "datasets (>=2.15.0)", "deepspeed (>=0.9.3)", "dill (<0.3.5)", "evaluate (>=0.4.6)", "faiss-cpu", "fastapi", "libcst", "mistral-common[image] (>=1.8.8)", "nltk (<=3.8.1)", "openai (>=1.98.0)", "optuna", "parameterized (>=0.9)", "protobuf", "psutil", "pydantic (>=2)", "pydantic (>=2)", "pytest (>=7.2.0,<9.0.0)", "pytest-asyncio (>=1.2.0)", "pytest-order", "pytest-rerunfailures (<16.0)", "pytest-rich", "pytest-timeout", "pytest-xdist", "rich", "rjieba", "rouge-score (!=0.0.7,!=0.0.8,!=0.1,!=0.1.1)", "ruff (==0.14.10)", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "sentencepiece (>=0.1.91,!=0.1.92)", "sentencepiece (>=0.1.91,!=0.1.92)", "starlette", "tensorboard", "timeout-decorator", "torch (>=2.2)", "uvicorn"]
+dev = ["GitPython (<3.1.19)", "GitPython (<3.1.19)", "Pillow (>=10.0.1,<=15.0)", "Pillow (>=10.0.1,<=15.0)", "accelerate (>=1.1.0)", "accelerate (>=1.1.0)", "accelerate (>=1.1.0)", "av", "beautifulsoup4", "codecarbon (>=2.8.1)", "cookiecutter (==1.7.3)", "cookiecutter (==1.7.3)", "datasets (>=2.15.0)", "datasets (>=2.15.0)", "datasets (>=2.15.0)", "dill (<0.3.5)", "evaluate (>=0.4.6)", "faiss-cpu", "fastapi", "fugashi (>=1.0)", "ipadic (>=1.0.0,<2.0)", "jinja2 (>=3.1.0)", "jmespath (>=1.0.1)", "kenlm", "kernels (>=0.10.2,<0.11)", "libcst", "libcst", "librosa", "mistral-common[image] (>=1.8.8)", "mistral-common[image] (>=1.8.8)", "nltk (<=3.8.1)", "num2words", "openai (>=1.98.0)", "optuna", "pandas (<2.3.0)", "parameterized (>=0.9)", "phonemizer", "protobuf", "psutil", "pyctcdecode (>=0.4.0)", "pydantic (>=2)", "pydantic (>=2)", "pytest (>=7.2.0,<9.0.0)", "pytest-asyncio (>=1.2.0)", "pytest-order", "pytest-rerunfailures (<16.0)", "pytest-rich", "pytest-timeout", "pytest-xdist", "ray[tune] (>=2.7.0)", "rhoknp (>=1.1.0,<1.3.1)", "rich", "rich", "rjieba", "rouge-score (!=0.0.7,!=0.0.8,!=0.1,!=0.1.1)", "ruff (==0.14.10)", "ruff (==0.14.10)", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "scikit-learn", "sentencepiece (>=0.1.91,!=0.1.92)", "sentencepiece (>=0.1.91,!=0.1.92)", "starlette", "sudachidict_core (>=20220729)", "sudachipy (>=0.6.6)", "tensorboard", "timeout-decorator", "timm (>=1.0.23)", "tokenizers (>=0.22.0,<=0.23.0)", "torch (>=2.2)", "torch (>=2.2)", "torchaudio", "torchvision", "unidic (>=1.0.2)", "unidic_lite (>=1.0.7)", "urllib3 (<2.0.0)", "uvicorn"]
+dev-torch = ["GitPython (<3.1.19)", "GitPython (<3.1.19)", "Pillow (>=10.0.1,<=15.0)", "Pillow (>=10.0.1,<=15.0)", "accelerate (>=1.1.0)", "accelerate (>=1.1.0)", "beautifulsoup4", "codecarbon (>=2.8.1)", "cookiecutter (==1.7.3)", "cookiecutter (==1.7.3)", "datasets (>=2.15.0)", "datasets (>=2.15.0)", "datasets (>=2.15.0)", "dill (<0.3.5)", "evaluate (>=0.4.6)", "faiss-cpu", "fastapi", "fugashi (>=1.0)", "ipadic (>=1.0.0,<2.0)", "kenlm", "kernels (>=0.10.2,<0.11)", "libcst", "libcst", "librosa", "mistral-common[image] (>=1.8.8)", "nltk (<=3.8.1)", "num2words", "openai (>=1.98.0)", "optuna", "pandas (<2.3.0)", "parameterized (>=0.9)", "phonemizer", "protobuf", "psutil", "pyctcdecode (>=0.4.0)", "pydantic (>=2)", "pydantic (>=2)", "pytest (>=7.2.0,<9.0.0)", "pytest-asyncio (>=1.2.0)", "pytest-order", "pytest-rerunfailures (<16.0)", "pytest-rich", "pytest-timeout", "pytest-xdist", "ray[tune] (>=2.7.0)", "rhoknp (>=1.1.0,<1.3.1)", "rich", "rich", "rjieba", "rouge-score (!=0.0.7,!=0.0.8,!=0.1,!=0.1.1)", "ruff (==0.14.10)", "ruff (==0.14.10)", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "scikit-learn", "sentencepiece (>=0.1.91,!=0.1.92)", "sentencepiece (>=0.1.91,!=0.1.92)", "starlette", "sudachidict_core (>=20220729)", "sudachipy (>=0.6.6)", "tensorboard", "timeout-decorator", "timm (>=1.0.23)", "tokenizers (>=0.22.0,<=0.23.0)", "torch (>=2.2)", "torch (>=2.2)", "torchaudio", "torchvision", "unidic (>=1.0.2)", "unidic_lite (>=1.0.7)", "urllib3 (<2.0.0)", "uvicorn"]
 ftfy = ["ftfy"]
-hf-xet = ["hf-xet"]
-hub-kernels = ["kernels (>=0.6.1,<=0.9)"]
-integrations = ["kernels (>=0.6.1,<=0.9)", "optuna", "ray[tune] (>=2.7.0)", "sigopt"]
-ja = ["fugashi (>=1.0)", "ipadic (>=1.0.0,<2.0)", "rhoknp (>=1.1.0,<1.3.1)", "sudachidict-core (>=20220729)", "sudachipy (>=0.6.6)", "unidic (>=1.0.2)", "unidic-lite (>=1.0.7)"]
-mistral-common = ["mistral-common[opencv] (>=1.6.3)"]
+hf-xet = ["hf_xet"]
+hub-kernels = ["kernels (>=0.10.2,<0.11)"]
+integrations = ["kernels (>=0.10.2,<0.11)", "optuna", "ray[tune] (>=2.7.0)"]
+ja = ["fugashi (>=1.0)", "ipadic (>=1.0.0,<2.0)", "rhoknp (>=1.1.0,<1.3.1)", "sudachidict_core (>=20220729)", "sudachipy (>=0.6.6)", "unidic (>=1.0.2)", "unidic_lite (>=1.0.7)"]
+mistral-common = ["mistral-common[image] (>=1.8.8)"]
 modelcreation = ["cookiecutter (==1.7.3)"]
 natten = ["natten (>=0.14.6,<0.15.0)"]
 num2words = ["num2words"]
-onnx = ["onnxconverter-common", "onnxruntime (>=1.4.0)", "onnxruntime-tools (>=1.4.2)", "tf2onnx"]
-onnxruntime = ["onnxruntime (>=1.4.0)", "onnxruntime-tools (>=1.4.2)"]
 open-telemetry = ["opentelemetry-api", "opentelemetry-exporter-otlp", "opentelemetry-sdk"]
 optuna = ["optuna"]
-quality = ["GitPython (<3.1.19)", "datasets (>=2.15.0)", "libcst", "pandas (<2.3.0)", "rich", "ruff (==0.11.2)", "urllib3 (<2.0.0)"]
+quality = ["GitPython (<3.1.19)", "datasets (>=2.15.0)", "libcst", "pandas (<2.3.0)", "rich", "ruff (==0.14.10)", "urllib3 (<2.0.0)"]
 ray = ["ray[tune] (>=2.7.0)"]
 retrieval = ["datasets (>=2.15.0)", "faiss-cpu"]
-ruff = ["ruff (==0.11.2)"]
+ruff = ["ruff (==0.14.10)"]
 sagemaker = ["sagemaker (>=2.31.0)"]
 sentencepiece = ["protobuf", "sentencepiece (>=0.1.91,!=0.1.92)"]
-serving = ["accelerate (>=0.26.0)", "fastapi", "openai (>=1.98.0)", "pydantic (>=2)", "starlette", "torch (>=2.2)", "uvicorn"]
-sigopt = ["sigopt"]
+serving = ["accelerate (>=1.1.0)", "fastapi", "openai (>=1.98.0)", "pydantic (>=2)", "rich", "starlette", "torch (>=2.2)", "uvicorn"]
 sklearn = ["scikit-learn"]
 speech = ["kenlm", "librosa", "phonemizer", "pyctcdecode (>=0.4.0)", "torchaudio"]
-testing = ["GitPython (<3.1.19)", "beautifulsoup4", "cookiecutter (==1.7.3)", "datasets (>=2.15.0)", "dill (<0.3.5)", "evaluate (>=0.2.0)", "faiss-cpu", "libcst", "mistral-common[opencv] (>=1.6.3)", "nltk (<=3.8.1)", "parameterized (>=0.9)", "psutil", "pydantic (>=2)", "pytest (>=7.2.0)", "pytest-asyncio", "pytest-order", "pytest-rerunfailures", "pytest-rich", "pytest-timeout", "pytest-xdist", "rjieba", "rouge-score (!=0.0.7,!=0.0.8,!=0.1,!=0.1.1)", "ruff (==0.11.2)", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "sentencepiece (>=0.1.91,!=0.1.92)", "tensorboard", "timeout-decorator"]
-tf = ["keras-nlp (>=0.3.1,<0.14.0)", "onnxconverter-common", "tensorflow (>2.9,<2.16)", "tensorflow-text (<2.16)", "tf2onnx"]
-tf-cpu = ["keras (>2.9,<2.16)", "keras-nlp (>=0.3.1,<0.14.0)", "onnxconverter-common", "tensorflow-cpu (>2.9,<2.16)", "tensorflow-probability (<0.24)", "tensorflow-text (<2.16)", "tf2onnx"]
-tf-speech = ["kenlm", "librosa", "phonemizer", "pyctcdecode (>=0.4.0)"]
+testing = ["GitPython (<3.1.19)", "accelerate (>=1.1.0)", "beautifulsoup4", "cookiecutter (==1.7.3)", "datasets (>=2.15.0)", "datasets (>=2.15.0)", "dill (<0.3.5)", "evaluate (>=0.4.6)", "faiss-cpu", "fastapi", "libcst", "mistral-common[image] (>=1.8.8)", "nltk (<=3.8.1)", "openai (>=1.98.0)", "parameterized (>=0.9)", "psutil", "pydantic (>=2)", "pydantic (>=2)", "pytest (>=7.2.0,<9.0.0)", "pytest-asyncio (>=1.2.0)", "pytest-order", "pytest-rerunfailures (<16.0)", "pytest-rich", "pytest-timeout", "pytest-xdist", "rich", "rjieba", "rouge-score (!=0.0.7,!=0.0.8,!=0.1,!=0.1.1)", "ruff (==0.14.10)", "sacrebleu (>=1.4.12,<2.0.0)", "sacremoses", "sentencepiece (>=0.1.91,!=0.1.92)", "starlette", "tensorboard", "timeout-decorator", "torch (>=2.2)", "uvicorn"]
 tiktoken = ["blobfile", "tiktoken"]
-timm = ["timm (!=1.0.18,<=1.0.19)"]
+timm = ["timm (>=1.0.23)"]
 tokenizers = ["tokenizers (>=0.22.0,<=0.23.0)"]
-torch = ["accelerate (>=0.26.0)", "torch (>=2.2)"]
+torch = ["accelerate (>=1.1.0)", "torch (>=2.2)"]
 torch-speech = ["kenlm", "librosa", "phonemizer", "pyctcdecode (>=0.4.0)", "torchaudio"]
 torch-vision = ["Pillow (>=10.0.1,<=15.0)", "torchvision"]
-torchhub = ["filelock", "huggingface-hub (>=0.34.0,<1.0)", "importlib-metadata", "numpy (>=1.17)", "packaging (>=20.0)", "protobuf", "regex (!=2019.12.17)", "requests", "sentencepiece (>=0.1.91,!=0.1.92)", "tokenizers (>=0.22.0,<=0.23.0)", "torch (>=2.2)", "tqdm (>=4.27)"]
+torchhub = ["filelock", "huggingface-hub (>=1.3.0,<2.0)", "importlib_metadata", "numpy (>=1.17)", "packaging (>=20.0)", "protobuf", "regex (!=2019.12.17)", "requests", "sentencepiece (>=0.1.91,!=0.1.92)", "tokenizers (>=0.22.0,<=0.23.0)", "torch (>=2.2)", "tqdm (>=4.27)"]
 video = ["av"]
 vision = ["Pillow (>=10.0.1,<=15.0)"]
 
@@ -1461,6 +1658,39 @@ files = [
 build = ["cmake (>=3.20,<4.0)", "lit"]
 tests = ["autopep8", "isort", "llnl-hatchet", "numpy", "pytest", "pytest-forked", "pytest-xdist", "scipy (>=1.7.1)"]
 tutorials = ["matplotlib", "pandas", "tabulate"]
+
+[[package]]
+name = "typer"
+version = "0.25.1"
+description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "typer-0.25.1-py3-none-any.whl", hash = "sha256:75caa44ed46a03fb2dab8808753ffacdbfea88495e74c85a28c5eefcf5f39c89"},
+    {file = "typer-0.25.1.tar.gz", hash = "sha256:9616eb8853a09ffeabab1698952f33c6f29ffdbceb4eaeecf571880e8d7664cc"},
+]
+
+[package.dependencies]
+annotated-doc = ">=0.0.2"
+click = ">=8.2.1"
+rich = ">=13.8.0"
+shellingham = ">=1.3.0"
+
+[[package]]
+name = "typer-slim"
+version = "0.24.0"
+description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
+optional = false
+python-versions = ">=3.10"
+groups = ["main"]
+files = [
+    {file = "typer_slim-0.24.0-py3-none-any.whl", hash = "sha256:d5d7ee1ee2834d5020c7c616ed5e0d0f29b9a4b1dd283bdebae198ec09778d0e"},
+    {file = "typer_slim-0.24.0.tar.gz", hash = "sha256:f0ed36127183f52ae6ced2ecb2521789995992c521a46083bfcdbb652d22ad34"},
+]
+
+[package.dependencies]
+typer = ">=0.24.0"
 
 [[package]]
 name = "typing-extensions"
@@ -1495,4 +1725,4 @@ zstd = ["backports-zstd (>=1.0.0) ; python_version < \"3.14\""]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.13"
-content-hash = "fca5d825b7c614e1b977e03e79938be6e037a8c868b500fdb2b16d3905a8a287"
+content-hash = "2519399d0aaf968e5f37d9815a26debd9f77f9cf1e24108c82f1099728f76cca"
